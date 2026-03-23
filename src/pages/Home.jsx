@@ -292,64 +292,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Locations ── */}
-      <section className="py-20 bg-cream" aria-labelledby="locations-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading accent>{t.locations.heading}</SectionHeading>
-
-          <div ref={locationsRef} className="fade-in-up grid grid-cols-1 md:grid-cols-2 gap-8">
-
-            {/* Braunschweig */}
-            <article className="card overflow-hidden p-0">
-              <div className="p-6">
-                <h3 className="font-serif text-xl font-bold text-navy-800 mb-1">{t.locations.bs_name}</h3>
-                <p className="font-sans text-sm text-navy-500 mb-4">Bankplatz 1, 38100 Braunschweig</p>
-                <div className="flex items-center gap-2 text-sm text-navy-600 font-sans">
-                  <PhoneIcon className="w-4 h-4 text-gold-500" />
-                  <a href="tel:+495314632" className="hover:text-gold-600 transition-colors">
-                    Tel. (05 31) / 4 63 25
-                  </a>
-                </div>
-              </div>
-              <div className="h-52 bg-navy-100">
-                <iframe
-                  title="Standort Braunschweig — Bankplatz 1"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.8!2d10.5246!3d52.2672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47aff4b87f4ae5e1%3A0x0!2sBankplatz+1%2C+38100+Braunschweig!5e0!3m2!1sde!2sde!4v1000000000000!5m2!1sde!2sde"
-                  className="w-full h-full border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  aria-label="Google Maps: Bankplatz 1, 38100 Braunschweig"
-                />
-              </div>
-            </article>
-
-            {/* Bonn */}
-            <article className="card overflow-hidden p-0">
-              <div className="p-6">
-                <h3 className="font-serif text-xl font-bold text-navy-800 mb-1">{t.locations.bonn_name}</h3>
-                <p className="font-sans text-sm text-navy-500 mb-4">Hermannstraße 17, 53225 Bonn (Beuel-Mitte)</p>
-                <div className="flex items-center gap-2 text-sm text-navy-600 font-sans">
-                  <PhoneIcon className="w-4 h-4 text-gold-500" />
-                  <a href="tel:+4922897638270" className="hover:text-gold-600 transition-colors">
-                    Tel. (02 28) / 976 382 70
-                  </a>
-                </div>
-              </div>
-              <div className="h-52 bg-navy-100">
-                <iframe
-                  title="Standort Bonn — Hermannstraße 17"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2527.0!2d7.1238!3d50.7477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bee6f2c3c0f8cd%3A0x0!2sHermannstra%C3%9Fe+17%2C+53225+Bonn!5e0!3m2!1sde!2sde!4v1000000000001!5m2!1sde!2sde"
-                  className="w-full h-full border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  aria-label="Google Maps: Hermannstraße 17, 53225 Bonn"
-                />
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
       {/* ── Radio / Podcast teaser ── */}
       <section className="py-12 bg-white" aria-label="Radio Okerwelle">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
