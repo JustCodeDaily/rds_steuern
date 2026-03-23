@@ -23,27 +23,11 @@ export default function Footer() {
             <p className="text-sm text-navy-300 leading-relaxed">{t.footer.tagline}</p>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="font-serif text-base font-semibold mb-4 text-white">{t.footer.contact_heading}</h3>
-            <address className="not-italic space-y-2 text-sm text-navy-300">
-              <p>Ring der Steuerzahler e.V.</p>
-              <p>Bankplatz 1, 38100 Braunschweig</p>
-              <p>
-                <a href="tel:+4953161831101" className="hover:text-gold-400 transition-colors">
-                  (0531) 618 311 01
-                </a>
-              </p>
-              <p>
-                <a href="mailto:info@rds-steuern.de" className="hover:text-gold-400 transition-colors">
-                  info@rds-steuern.de
-                </a>
-              </p>
-            </address>
-          </div>
+          {/* Col 2 — empty spacer */}
+          <div />
 
-          {/* Developed By */}
-          <div>
+          {/* Col 3 — Developed By (rightmost) */}
+          <div className="md:text-right">
             <h3 className="font-serif text-base font-semibold mb-4 text-white">Developed By</h3>
             <p className="text-sm text-navy-300">
               <a href="mailto:justcodedaily@gmail.com" className="hover:text-gold-400 transition-colors">
@@ -64,7 +48,7 @@ export default function Footer() {
             <span>·</span>
             <Link to="/datenschutz" className="hover:text-gold-400 transition-colors">Datenschutz</Link>
           </div>
-          <div className="text-navy-500">OFD Münster S 0934 B – 358 St 31 – 41</div>
+          <div className="text-navy-400">OFD Münster S 0934 B – 358 St 31 – 41</div>
         </div>
       </div>
     </footer>
