@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-
-const navLinks = [
-  { to: '/',              label: 'Willkommen' },
-  { to: '/leistungen',    label: 'Leistungen' },
-  { to: '/mitgliedschaft',label: 'Mitgliedschaft' },
-  { to: '/karriere',      label: 'Karriere' },
-  { to: '/kontakt',       label: 'Kontakt' },
-]
+import { useLang } from '../i18n/LanguageContext'
 
 export default function NavBar() {
-  const [scrolled, setScrolled]   = useState(false)
-  const [menuOpen, setMenuOpen]   = useState(false)
+  const { t, lang, toggle } = useLang()
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const navLinks = [
+    { to: '/leistungen',     label: t.nav.leistungen },
+    { to: '/mitgliedschaft', label: t.nav.mitgliedschaft },
+    { to: '/kontakt',        label: t.nav.kontakt },
+    { to: '/karriere',       label: t.nav.karriere },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -19,7 +20,6 @@ export default function NavBar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close mobile menu on route change
   const closeMenu = () => setMenuOpen(false)
 
   return (
@@ -29,7 +29,7 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 group" aria-label="RDS e.V. Startseite">
+        <Link to="/" className="flex items-center gap-3" aria-label="RDS e.V. Startseite">
           <div className="w-10 h-10 bg-navy-800 rounded-lg flex items-center justify-center flex-shrink-0">
             <span className="font-serif text-gold-500 text-xl font-bold leading-none">R</span>
           </div>
@@ -45,7 +45,6 @@ export default function NavBar() {
             <NavLink
               key={to}
               to={to}
-              end={to === '/'}
               className={({ isActive }) =>
                 `px-4 py-2 rounded-md text-sm font-sans transition-colors duration-150 ${
                   isActive
@@ -58,30 +57,40 @@ export default function NavBar() {
             </NavLink>
           ))}
           <button
-            className="ml-4 px-3 py-1.5 border border-navy-300 rounded text-xs font-sans text-navy-600 hover:border-navy-600 transition-colors"
-            aria-label="Sprache wechseln zu Englisch"
+            onClick={toggle}
+            className="ml-4 px-3 py-1.5 border border-navy-300 rounded text-xs font-sans font-semibold text-navy-600 hover:border-navy-600 hover:bg-navy-50 transition-colors min-w-[36px]"
+            aria-label={lang === 'de' ? 'Switch to English' : 'Zu Deutsch wechseln'}
           >
-            EN
+            {lang === 'de' ? 'EN' : 'DE'}
           </button>
         </nav>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden p-2 rounded-md text-navy-700 hover:bg-navy-50 transition-colors"
-          onClick={() => setMenuOpen(o => !o)}
-          aria-label={menuOpen ? 'Menü schließen' : 'Menü öffnen'}
-          aria-expanded={menuOpen}
-        >
-          {menuOpen ? (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
-        </button>
+        {/* Mobile: lang toggle + hamburger */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={toggle}
+            className="px-2.5 py-1 border border-navy-300 rounded text-xs font-sans font-semibold text-navy-600"
+            aria-label={lang === 'de' ? 'Switch to English' : 'Zu Deutsch wechseln'}
+          >
+            {lang === 'de' ? 'EN' : 'DE'}
+          </button>
+          <button
+            className="p-2 rounded-md text-navy-700 hover:bg-navy-50 transition-colors"
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label={menuOpen ? 'Menü schließen' : 'Menü öffnen'}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile slide-in menu */}
@@ -96,7 +105,6 @@ export default function NavBar() {
             <NavLink
               key={to}
               to={to}
-              end={to === '/'}
               onClick={closeMenu}
               className={({ isActive }) =>
                 `px-4 py-3 rounded-md text-sm font-sans transition-colors ${
@@ -109,14 +117,6 @@ export default function NavBar() {
               {label}
             </NavLink>
           ))}
-          <div className="mt-4 pt-4 border-t border-warm-gray">
-            <button
-              className="px-3 py-1.5 border border-navy-300 rounded text-xs font-sans text-navy-600"
-              aria-label="Sprache wechseln zu Englisch"
-            >
-              EN
-            </button>
-          </div>
         </nav>
       </div>
 

@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "home": "Home",
+    "leistungen": "Services",
+    "mitgliedschaft": "Membership",
+    "kontakt": "Contact",
+    "karriere": "Career"
+  },
+  "hero": {
+    "badge": "Licensed under §4 No. 11 StBerG",
+    "h1_pre": "Your reliable partner for all your",
+    "h1_gold": "tax questions",
+    "subtitle": "We prepare your tax return professionally and personally — in Braunschweig and Bonn. Advisory services also available in English.",
+    "cta_appointment": "Book an appointment",
+    "cta_services": "Our Services"
+  },
+  "trust": {
+    "item1_label": "Licensed",
+    "item1_sub": "OFD Münster",
+    "item2_label": "2 Locations",
+    "item2_sub": "Braunschweig & Bonn",
+    "item3_label": "English Service",
+    "item3_sub": "Advisory in English",
+    "item4_label": "ELSTER",
+    "item4_sub": "Electronic filing"
+  },
+  "services": {
+    "heading": "Our Services",
+    "cta": "View all services",
+    "s1_title": "Tax Return",
+    "s1_desc": "Professional preparation of your annual income tax return — complete and on time.",
+    "s2_title": "Assessment Review",
+    "s2_desc": "Careful review of your tax assessment and filing of objections where needed.",
+    "s3_title": "Individual Advice",
+    "s3_desc": "Personal advice on your tax situation — upon request also in English.",
+    "s4_title": "Family & Children",
+    "s4_desc": "Child benefit, child allowances, parental benefit and tax relief for families.",
+    "s5_title": "Foreign Income",
+    "s5_desc": "Advice on income from abroad, double taxation agreements and more.",
+    "s6_title": "Pensions & Annuities",
+    "s6_desc": "Tax treatment of pensions, annuities and retirement benefits."
+  },
+  "membership": {
+    "badge": "All-inclusive service",
+    "heading": "Fair membership fees",
+    "body": "Become a member and benefit from our comprehensive service at a fair annual fee. No hidden costs — everything included.",
+    "checklist": ["Tax return", "Assessment review", "Personal advice", "ELSTER filing"],
+    "cta": "Become a member",
+    "from": "From €120/year",
+    "to": "Up to max. €450/year",
+    "signup_fee": "One-time registration fee: €20",
+    "cta_card": "Request membership"
+  },
+  "international": {
+    "heading": "Also for foreign residents",
+    "body": "We offer our advisory services in English — for international professionals, expats and anyone who is not confident in German."
+  },
+  "locations": {
+    "heading": "Our Locations",
+    "bs_name": "Braunschweig",
+    "bs_note": "Address on request",
+    "bonn_name": "Bonn",
+    "bonn_note": "Address on request"
+  },
+  "radio": {
+    "title": "Radio Okerwelle",
+    "subtitle": "Listen to our tax broadcasts on topics for retirees, employees and more.",
+    "cta": "Listen to broadcasts"
+  },
+  "final_cta": {
+    "heading": "Ready for your tax return?",
+    "body": "Contact us today — we will help you quickly and easily.",
+    "btn1": "Get in touch",
+    "btn2": "Become a member"
+  },
+  "footer": {
+    "tagline": "Professional tax advisory for employees, retirees and families — in Braunschweig and Bonn.",
+    "nav_heading": "Navigation",
+    "contact_heading": "Contact"
+  },
+  "kontakt": {
+    "badge": "Contact",
+    "heading": "Write to us",
+    "info_heading": "Contact details",
+    "note": "Note: Please contact the advisory office nearest to you for local appointments. Information about offices near you is available by phone or email.",
+    "form_heading": "Contact form",
+    "form_body": "The online form will be available shortly. Please contact us directly by email in the meantime.",
+    "form_cta": "Send email",
+    "hours_heading": "Opening hours",
+    "mon_fri": "Monday and Friday",
+    "tue_thu": "Tuesday to Thursday"
+  },
+  "leistungen": {
+    "badge": "Service portfolio",
+    "heading": "Our Services",
+    "group1_heading": "Around your tax return",
+    "group2_heading": "Individual advice",
+    "cta_heading": "Ready to get started?",
+    "cta_body": "Contact us for a no-obligation consultation or become a member directly.",
+    "cta_btn1": "Get in touch",
+    "cta_btn2": "Become a member"
+  },
+  "mitgliedschaft": {
+    "badge": "Membership",
+    "heading": "Become a Member",
+    "why_heading": "Why become a member?",
+    "why_body": "As a member of Ring der Steuerzahler e.V. you benefit from a comprehensive advisory and processing service for your tax return — at a fair annual fee with no hidden costs. Our experienced advisors take care of your tax matters personally and maximise your refund.",
+    "basic_heading": "Generally possible",
+    "basic_items": ["Income from non-self-employed work (wages)", "Pension and retirement income", "Maintenance payments"],
+    "limited_heading": "Limited scope",
+    "limited_sub": "Only within the statutory scope of authorisation (§ 4 No. 11 StBerG)",
+    "limited_items": ["Income from capital assets (withholding tax)", "Income from letting and leasing", "Other income"],
+    "limit_note": "Note: Advisory authorisation is limited to members whose income (other than wages, pensions etc.) does not exceed €18,000 (single) / €36,000 (couples).",
+    "pricing_heading": "Membership fee",
+    "cta": "Apply for membership"
+  },
+  "karriere": {
+    "badge": "Career",
+    "heading": "Join our team",
+    "job_badge": "Job offer",
+    "job_title": "Tax clerk",
+    "job_sub": "or employee with equivalent qualification",
+    "type_label": "Employment type",
+    "type_value": "Employment contract",
+    "hours_label": "Working hours",
+    "hours_value": "Full or part time",
+    "body": "We are a growing income tax assistance association with locations in Braunschweig and Bonn and are looking for motivated employees to strengthen our team. If you have training as a tax clerk or a comparable qualification, we look forward to your application.",
+    "note": "We kindly ask for applications by email.",
+    "cta": "Send application"
+  },
+  "impressum": {
+    "heading": "Legal Notice"
+  },
+  "datenschutz": {
+    "heading": "Privacy Policy"
+  },
+  "radio_page": {
+    "badge": "Podcast",
+    "heading": "Radio Okerwelle",
+    "subtitle": "Our tax broadcasts to listen back"
+  }
+}

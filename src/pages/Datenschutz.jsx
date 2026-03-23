@@ -1,4 +1,6 @@
 import { useFadeInUp } from '../hooks/useFadeInUp'
+import { useLang } from '../i18n/LanguageContext'
+import PageHeader from '../components/PageHeader'
 
 function Section({ title, children }) {
   return (
@@ -10,24 +12,19 @@ function Section({ title, children }) {
 }
 
 export default function Datenschutz() {
+  const { t } = useLang()
   const ref = useFadeInUp()
 
   return (
     <>
-      <header className="page-header">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-white">Datenschutzerklärung</h1>
-        </div>
-      </header>
+      <PageHeader heading={t.datenschutz.heading} />
 
-      <main className="py-20 bg-cream">
+      <div className="py-20 bg-cream">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
           <div ref={ref} className="fade-in-up card space-y-0">
 
             <Section title="Verantwortliche Stelle">
-              <p>
-                Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
-              </p>
+              <p>Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:</p>
               <address className="not-italic mt-2">
                 <p className="font-semibold text-navy-800">Ring der Steuerzahler e.V.</p>
                 <p>Bankplatz 1, 38100 Braunschweig</p>
@@ -95,9 +92,7 @@ export default function Datenschutz() {
 
             <Section title="Cookies">
               <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                <p className="text-green-800 font-medium">
-                  Diese Website verwendet keine Cookies.
-                </p>
+                <p className="text-green-800 font-medium">Diese Website verwendet keine Cookies.</p>
               </div>
             </Section>
 
@@ -107,19 +102,16 @@ export default function Datenschutz() {
               <p>
                 Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den
                 aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer
-                Leistungen in der Datenschutzerklärung umzusetzen. Für Ihren erneuten Besuch gilt
-                dann die neue Datenschutzerklärung.
+                Leistungen in der Datenschutzerklärung umzusetzen.
               </p>
             </Section>
 
             <div className="border-t border-warm-gray mt-4 pt-4">
-              <p className="font-sans text-xs text-navy-400">
-                Stand: März 2026
-              </p>
+              <p className="font-sans text-xs text-navy-400">Stand: März 2026</p>
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </>
   )
 }

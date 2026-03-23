@@ -1,4 +1,6 @@
 import { useFadeInUp } from '../hooks/useFadeInUp'
+import { useLang } from '../i18n/LanguageContext'
+import PageHeader from '../components/PageHeader'
 
 function Section({ title, children }) {
   return (
@@ -10,17 +12,14 @@ function Section({ title, children }) {
 }
 
 export default function Impressum() {
+  const { t } = useLang()
   const ref = useFadeInUp()
 
   return (
     <>
-      <header className="page-header">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-white">Impressum</h1>
-        </div>
-      </header>
+      <PageHeader heading={t.impressum.heading} />
 
-      <main className="py-20 bg-cream">
+      <div className="py-20 bg-cream">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
           <div ref={ref} className="fade-in-up card space-y-0">
 
@@ -97,7 +96,7 @@ export default function Impressum() {
             </Section>
           </div>
         </div>
-      </main>
+      </div>
     </>
   )
 }

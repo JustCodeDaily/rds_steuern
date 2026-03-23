@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom'
+import { useLang } from '../i18n/LanguageContext'
 
 export default function Footer() {
+  const { t } = useLang()
+
   return (
     <footer className="bg-navy-800 text-white" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
-          {/* Brand */}
+          {/* Col 1 — Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 bg-gold-500 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -17,14 +20,12 @@ export default function Footer() {
                 <div className="font-sans text-[11px] text-navy-300 tracking-widest uppercase">Lohnsteuerhilfeverein</div>
               </div>
             </div>
-            <p className="text-sm text-navy-300 leading-relaxed">
-              Professionelle Steuerberatung für Arbeitnehmer, Rentner und Familien — in Braunschweig und Bonn.
-            </p>
+            <p className="text-sm text-navy-300 leading-relaxed">{t.footer.tagline}</p>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="font-serif text-base font-semibold mb-4 text-white">Kontakt</h3>
+            <h3 className="font-serif text-base font-semibold mb-4 text-white">{t.footer.contact_heading}</h3>
             <address className="not-italic space-y-2 text-sm text-navy-300">
               <p>Ring der Steuerzahler e.V.</p>
               <p>Bankplatz 1, 38100 Braunschweig</p>
