@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-navy-800 text-white" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 
           {/* Col 1 — Brand */}
           <div>
@@ -40,6 +40,16 @@ export default function Footer() {
                 </a>
               </p>
             </address>
+          </div>
+
+          {/* Developed By */}
+          <div>
+            <h3 className="font-serif text-base font-semibold mb-4 text-white">Developed By</h3>
+            <p className="text-sm text-navy-300">
+              <a href="mailto:justcodedaily@gmail.com" className="hover:text-gold-400 transition-colors">
+                JustCodeDaily
+              </a>
+            </p>
           </div>
         </div>
       </div>

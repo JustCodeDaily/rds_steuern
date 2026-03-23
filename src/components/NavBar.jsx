@@ -8,6 +8,7 @@ export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const navLinks = [
+    { to: '/',               label: t.nav.home },
     { to: '/leistungen',     label: t.nav.leistungen },
     { to: '/mitgliedschaft', label: t.nav.mitgliedschaft },
     { to: '/kontakt',        label: t.nav.kontakt },
@@ -45,6 +46,7 @@ export default function NavBar() {
             <NavLink
               key={to}
               to={to}
+              end={to === '/'}
               className={({ isActive }) =>
                 `px-4 py-2 rounded-md text-sm font-sans transition-colors duration-150 ${
                   isActive
@@ -105,6 +107,7 @@ export default function NavBar() {
             <NavLink
               key={to}
               to={to}
+              end={to === '/'}
               onClick={closeMenu}
               className={({ isActive }) =>
                 `px-4 py-3 rounded-md text-sm font-sans transition-colors ${
