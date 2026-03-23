@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "home": "Home",
+    "leistungen": "Leistungen",
+    "mitgliedschaft": "Mitgliedschaft",
+    "kontakt": "Kontakt",
+    "karriere": "Karriere"
+  },
+  "hero": {
+    "badge": "Zugelassen gemäß §4 Nr. 11 StBerG",
+    "h1_pre": "Ihr zuverlässiger Partner rund um Ihre",
+    "h1_gold": "Steuerfragen",
+    "subtitle": "Wir erstellen Ihre Steuererklärung professionell und persönlich — in Braunschweig und Bonn. Auch Beratung in englischer Sprache.",
+    "cta_appointment": "Termin vereinbaren",
+    "cta_services": "Unsere Leistungen"
+  },
+  "trust": {
+    "item1_label": "Zugelassen",
+    "item1_sub": "OFD Münster",
+    "item2_label": "2 Standorte",
+    "item2_sub": "Braunschweig & Bonn",
+    "item3_label": "English Service",
+    "item3_sub": "Beratung auf Englisch",
+    "item4_label": "ELSTER",
+    "item4_sub": "Elektronische Abgabe"
+  },
+  "services": {
+    "heading": "Unsere Leistungen",
+    "cta": "Alle Leistungen ansehen",
+    "s1_title": "Steuererklärung",
+    "s1_desc": "Professionelle Erstellung Ihrer Einkommensteuererklärung — vollständig und fristgerecht.",
+    "s2_title": "Bescheid-Prüfung",
+    "s2_desc": "Sorgfältige Prüfung Ihres Steuerbescheids und Einspruchsführung bei Unstimmigkeiten.",
+    "s3_title": "Individuelle Beratung",
+    "s3_desc": "Persönliche Beratung zu Ihrer steuerlichen Situation — auf Wunsch auch auf Englisch.",
+    "s4_title": "Familie & Kinder",
+    "s4_desc": "Kindergeld, Kinderfreibeträge, Elterngeld und steuerliche Entlastungen für Familien.",
+    "s5_title": "Auslandseinkünfte",
+    "s5_desc": "Beratung zu Einkünften aus dem Ausland, Doppelbesteuerungsabkommen und mehr.",
+    "s6_title": "Renten & Pensionen",
+    "s6_desc": "Steuerliche Behandlung von Renten, Pensionen und Versorgungsbezügen."
+  },
+  "membership": {
+    "badge": "All-inclusive Service",
+    "heading": "Faire Mitgliedsbeiträge",
+    "body": "Werden Sie Mitglied und profitieren Sie von unserem umfassenden Service zu einem fairen Jahresbeitrag. Keine versteckten Kosten — alles inklusive.",
+    "checklist": ["Steuererklärung", "Bescheid-Prüfung", "Persönliche Beratung", "ELSTER-Abgabe"],
+    "cta": "Jetzt Mitglied werden",
+    "from": "Ab 120€/Jahr",
+    "to": "Bis max. 450€/Jahr",
+    "signup_fee": "Einmalige Aufnahmegebühr: 20€",
+    "cta_card": "Mitgliedschaft anfragen"
+  },
+  "international": {
+    "heading": "Auch für ausländische Mitbürger",
+    "body": "Wir bieten unsere Beratungsleistungen auch in englischer Sprache an — für internationale Fachkräfte, Expats und alle, die sich auf Deutsch nicht sicher fühlen."
+  },
+  "locations": {
+    "heading": "Unsere Standorte",
+    "bs_name": "Braunschweig",
+    "bs_note": "Adresse auf Anfrage",
+    "bonn_name": "Bonn",
+    "bonn_note": "Adresse auf Anfrage"
+  },
+  "radio": {
+    "title": "Radio Okerwelle",
+    "subtitle": "Hören Sie unsere Sendungen zu Steuerthemen für Rentner, Arbeitnehmer und mehr.",
+    "cta": "Sendungen anhören"
+  },
+  "final_cta": {
+    "heading": "Bereit für Ihre Steuererklärung?",
+    "body": "Kontaktieren Sie uns noch heute — wir helfen Ihnen schnell und unkompliziert.",
+    "btn1": "Kontakt aufnehmen",
+    "btn2": "Mitglied werden"
+  },
+  "footer": {
+    "tagline": "Professionelle Steuerberatung für Arbeitnehmer, Rentner und Familien — in Braunschweig und Bonn.",
+    "nav_heading": "Navigation",
+    "contact_heading": "Kontakt"
+  },
+  "kontakt": {
+    "badge": "Kontakt",
+    "heading": "Schreiben Sie uns",
+    "info_heading": "Kontaktdaten",
+    "note": "Hinweis: Bitte wenden Sie sich für ortsnahe Termine an die für Sie zuständige Beratungsstelle. Auskünfte zu Beratungsstellen in Ihrer Nähe erhalten Sie telefonisch oder per E-Mail.",
+    "form_heading": "Kontaktformular",
+    "form_body": "Das Online-Formular steht in Kürze zur Verfügung. Bitte kontaktieren Sie uns bis dahin direkt per E-Mail.",
+    "form_cta": "E-Mail senden",
+    "hours_heading": "Öffnungszeiten",
+    "mon_fri": "Montag und Freitag",
+    "tue_thu": "Dienstag bis Donnerstag"
+  },
+  "leistungen": {
+    "badge": "Leistungsspektrum",
+    "heading": "Unsere Leistungen",
+    "group1_heading": "Rund um Ihre Steuererklärung",
+    "group2_heading": "Individuelle Beratung",
+    "cta_heading": "Bereit anzufangen?",
+    "cta_body": "Kontaktieren Sie uns für ein unverbindliches Gespräch oder werden Sie direkt Mitglied.",
+    "cta_btn1": "Kontakt aufnehmen",
+    "cta_btn2": "Mitglied werden"
+  },
+  "mitgliedschaft": {
+    "badge": "Mitgliedschaft",
+    "heading": "Werden Sie Mitglied",
+    "why_heading": "Warum Mitglied werden?",
+    "why_body": "Als Mitglied des Ring der Steuerzahler e.V. profitieren Sie von einem umfassenden Beratungs- und Bearbeitungsservice rund um Ihre Steuererklärung — zu einem fairen Jahresbeitrag ohne versteckte Kosten. Unsere erfahrenen Berater kümmern sich persönlich um Ihre Steuerangelegenheiten und maximieren Ihre Erstattung.",
+    "basic_heading": "Grundsätzlich möglich",
+    "basic_items": ["Einkünfte aus nichtselbstständiger Arbeit (Arbeitslohn)", "Renteneinkünfte und Pensionen", "Unterhaltsleistungen"],
+    "limited_heading": "Eingeschränkt möglich",
+    "limited_sub": "Nur im Rahmen der gesetzlichen Befugnisgrenzen (§ 4 Nr. 11 StBerG)",
+    "limited_items": ["Einkünfte aus Kapitalvermögen (Abgeltungsteuer)", "Einkünfte aus Vermietung und Verpachtung", "Sonstige Einkünfte"],
+    "limit_note": "Hinweis: Die Beratungsbefugnis ist auf Mitglieder begrenzt, deren Einkünfte (außer Arbeitslohn, Renten etc.) 18.000 € (Ledige) bzw. 36.000 € (Ehepaare) nicht übersteigen.",
+    "pricing_heading": "Mitgliedsbeitrag",
+    "cta": "Jetzt Mitglied werden"
+  },
+  "karriere": {
+    "badge": "Karriere",
+    "heading": "Werden Sie Teil unseres Teams",
+    "job_badge": "Stellenangebot",
+    "job_title": "Steuerfachangestellte/r",
+    "job_sub": "oder Mitarbeiter/in mit ähnlicher Ausbildung",
+    "type_label": "Anstellungsart",
+    "type_value": "Angestelltenverhältnis",
+    "hours_label": "Arbeitszeit",
+    "hours_value": "Voll- oder Teilzeit",
+    "body": "Wir sind ein wachsender Lohnsteuerhilfeverein mit Standorten in Braunschweig und Bonn und suchen engagierte Mitarbeiterinnen und Mitarbeiter, die unser Team verstärken. Wenn Sie eine Ausbildung als Steuerfachangestellte/r oder eine vergleichbare Qualifikation mitbringen, freuen wir uns auf Ihre Bewerbung.",
+    "note": "Wir bitten um Bewerbung per E-Mail.",
+    "cta": "Bewerbung senden"
+  },
+  "impressum": {
+    "heading": "Impressum"
+  },
+  "datenschutz": {
+    "heading": "Datenschutzerklärung"
+  },
+  "radio_page": {
+    "badge": "Podcast",
+    "heading": "Radio Okerwelle",
+    "subtitle": "Unsere Steuer-Sendungen zum Nachhören"
+  }
+}

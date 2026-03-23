@@ -1,4 +1,6 @@
 import { useFadeInUp } from '../hooks/useFadeInUp'
+import { useLang } from '../i18n/LanguageContext'
+import PageHeader from '../components/PageHeader'
 
 const BASE = 'https://rds-steuern.de/'
 
@@ -36,9 +38,8 @@ const episode2 = {
   ],
 }
 
-function EpisodeCard({ episode, idx }) {
+function EpisodeCard({ episode }) {
   const ref = useFadeInUp()
-
   return (
     <article ref={ref} className="fade-in-up card border-t-4 border-t-gold-500">
       <div className="flex items-start gap-4 mb-6">
@@ -50,28 +51,18 @@ function EpisodeCard({ episode, idx }) {
         </div>
         <div>
           <h2 className="font-serif text-xl font-bold text-navy-800">{episode.title}</h2>
-          <p className="font-sans text-sm text-navy-400">
-            {episode.subtitle} · {episode.date}
-          </p>
+          <p className="font-sans text-sm text-navy-400">{episode.subtitle} · {episode.date}</p>
         </div>
       </div>
 
       <ol className="space-y-3" aria-label={`Sendungsabschnitte: ${episode.title}`}>
         {episode.segments.map(({ label, file }, i) => (
-          <li
-            key={file}
-            className="bg-gold-50 rounded-lg px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3"
-          >
+          <li key={file} className="bg-gold-50 rounded-lg px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
             <span className="font-sans text-xs text-navy-500 sm:w-48 flex-shrink-0">
               <span className="font-semibold text-navy-700">{i + 1}.</span> {label}
             </span>
             {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-            <audio
-              controls
-              preload="none"
-              className="w-full h-8"
-              aria-label={`Abschnitt ${i + 1}: ${label}`}
-            >
+            <audio controls preload="none" className="w-full h-8" aria-label={`Abschnitt ${i + 1}: ${label}`}>
               <source src={`${BASE}${file}`} type="audio/mpeg" />
               Ihr Browser unterstützt das Audio-Element nicht.
             </audio>
@@ -83,26 +74,22 @@ function EpisodeCard({ episode, idx }) {
 }
 
 export default function Radio() {
+  const { t } = useLang()
+
   return (
     <>
-      <header className="page-header">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <div className="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-500/40 text-gold-300 text-xs font-sans font-medium tracking-widest uppercase px-4 py-2 rounded-full mb-5">
-            Podcast
-          </div>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-white">Radio Okerwelle</h1>
-          <p className="font-sans text-navy-200 mt-4 text-lg">
-            Unsere Steuer-Sendungen zum Nachhören
-          </p>
-        </div>
-      </header>
+      <PageHeader
+        badge={t.radio_page.badge}
+        heading={t.radio_page.heading}
+        subtitle={t.radio_page.subtitle}
+      />
 
-      <main className="py-20 bg-cream">
+      <div className="py-20 bg-cream">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 space-y-10">
-          <EpisodeCard episode={episode1} idx={1} />
-          <EpisodeCard episode={episode2} idx={2} />
+          <EpisodeCard episode={episode1} />
+          <EpisodeCard episode={episode2} />
         </div>
-      </main>
+      </div>
     </>
   )
 }

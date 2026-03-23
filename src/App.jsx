@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { LanguageProvider } from './i18n/LanguageContext'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -12,23 +13,25 @@ import Radio from './pages/Radio'
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen flex flex-col">
-        <NavBar />
-        <main className="flex-1 pt-[72px]">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/leistungen" element={<Leistungen />} />
-            <Route path="/mitgliedschaft" element={<Mitgliedschaft />} />
-            <Route path="/karriere" element={<Karriere />} />
-            <Route path="/kontakt" element={<Kontakt />} />
-            <Route path="/impressum" element={<Impressum />} />
-            <Route path="/datenschutz" element={<Datenschutz />} />
-            <Route path="/radio" element={<Radio />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <div className="min-h-screen flex flex-col">
+          <NavBar />
+          <main className="flex-1 pt-[72px]">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/leistungen" element={<Leistungen />} />
+              <Route path="/mitgliedschaft" element={<Mitgliedschaft />} />
+              <Route path="/karriere" element={<Karriere />} />
+              <Route path="/kontakt" element={<Kontakt />} />
+              <Route path="/impressum" element={<Impressum />} />
+              <Route path="/datenschutz" element={<Datenschutz />} />
+              <Route path="/radio" element={<Radio />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </LanguageProvider>
   )
 }

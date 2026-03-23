@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useFadeInUp } from '../hooks/useFadeInUp'
+import { useLang } from '../i18n/LanguageContext'
 
 // ── Icons ─────────────────────────────────────────────────────────────────────
 function ShieldIcon({ className = 'w-5 h-5' }) {
@@ -55,102 +56,32 @@ function PhoneIcon({ className = 'w-5 h-5' }) {
   )
 }
 
-// ── Service card data ─────────────────────────────────────────────────────────
-const services = [
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      </svg>
-    ),
-    title: 'Steuererklärung',
-    desc:  'Professionelle Erstellung Ihrer Einkommensteuererklärung — vollständig und fristgerecht.',
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-      </svg>
-    ),
-    title: 'Bescheid-Prüfung',
-    desc:  'Sorgfältige Prüfung Ihres Steuerbescheids und Einspruchsführung bei Unstimmigkeiten.',
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
-    title: 'Individuelle Beratung',
-    desc:  'Persönliche Beratung zu Ihrer steuerlichen Situation — auf Wunsch auch auf Englisch.',
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-      </svg>
-    ),
-    title: 'Familie & Kinder',
-    desc:  'Kindergeld, Kinderfreibeträge, Elterngeld und steuerliche Entlastungen für Familien.',
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    title: 'Auslandseinkünfte',
-    desc:  'Beratung zu Einkünften aus dem Ausland, Doppelbesteuerungsabkommen und mehr.',
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    title: 'Renten & Pensionen',
-    desc:  'Steuerliche Behandlung von Renten, Pensionen und Versorgungsbezügen.',
-  },
-]
-
-// ── Trust strip data ──────────────────────────────────────────────────────────
-const trustItems = [
-  {
-    label: 'Zugelassen',
-    sub: 'OFD Münster',
-    icon: <ShieldIcon className="w-6 h-6" />,
-  },
-  {
-    label: '2 Standorte',
-    sub: 'Braunschweig & Bonn',
-    icon: <LocationIcon className="w-6 h-6" />,
-  },
-  {
-    label: 'English Service',
-    sub: 'Beratung auf Englisch',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-      </svg>
-    ),
-  },
-  {
-    label: 'ELSTER',
-    sub: 'Elektronische Abgabe',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-          d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-      </svg>
-    ),
-  },
+// ── Service icons (static SVG, language-independent) ─────────────────────────
+const serviceIcons = [
+  <svg key="s1" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+  </svg>,
+  <svg key="s2" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+  </svg>,
+  <svg key="s3" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>,
+  <svg key="s4" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+  </svg>,
+  <svg key="s5" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+      d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>,
+  <svg key="s6" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>,
 ]
 
 // ── Sub-components ────────────────────────────────────────────────────────────
@@ -165,12 +96,38 @@ function SectionHeading({ children, accent }) {
 }
 
 export default function Home() {
-  const heroRef       = useFadeInUp()
-  const servicesRef   = useFadeInUp()
-  const memberRef     = useFadeInUp()
-  const locationsRef  = useFadeInUp()
-  const radioRef      = useFadeInUp()
-  const ctaRef        = useFadeInUp()
+  const { t } = useLang()
+  const heroRef      = useFadeInUp()
+  const servicesRef  = useFadeInUp()
+  const memberRef    = useFadeInUp()
+  const locationsRef = useFadeInUp()
+  const radioRef     = useFadeInUp()
+  const ctaRef       = useFadeInUp()
+
+  const serviceKeys = ['s1', 's2', 's3', 's4', 's5', 's6']
+
+  const trustItems = [
+    { label: t.trust.item1_label, sub: t.trust.item1_sub, icon: <ShieldIcon className="w-6 h-6" /> },
+    { label: t.trust.item2_label, sub: t.trust.item2_sub, icon: <LocationIcon className="w-6 h-6" /> },
+    {
+      label: t.trust.item3_label, sub: t.trust.item3_sub,
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+            d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+        </svg>
+      ),
+    },
+    {
+      label: t.trust.item4_label, sub: t.trust.item4_sub,
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+        </svg>
+      ),
+    },
+  ]
 
   return (
     <>
@@ -195,28 +152,26 @@ export default function Home() {
         </div>
 
         <div ref={heroRef} className="fade-in-up relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center py-24">
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-500/40 text-gold-300 text-xs font-sans font-medium tracking-wide px-4 py-2 rounded-full mb-8">
             <ShieldIcon className="w-4 h-4" />
-            Zugelassen gemäß §4 Nr. 11 StBerG
+            {t.hero.badge}
           </div>
 
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-            Ihr zuverlässiger Partner rund um Ihre{' '}
-            <span className="text-gold-400">Steuerfragen</span>
+            {t.hero.h1_pre}{' '}
+            <span className="text-gold-400">{t.hero.h1_gold}</span>
           </h1>
 
           <p className="font-sans text-lg text-navy-200 leading-relaxed mb-10 max-w-2xl mx-auto">
-            Wir erstellen Ihre Steuererklärung professionell und persönlich — in Braunschweig und Bonn.
-            Auch Beratung in englischer Sprache.
+            {t.hero.subtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/kontakt" className="btn-gold text-base px-8 py-4">
-              Termin vereinbaren <ArrowRightIcon />
+              {t.hero.cta_appointment} <ArrowRightIcon />
             </Link>
             <Link to="/leistungen" className="btn-outline-light text-base px-8 py-4">
-              Unsere Leistungen
+              {t.hero.cta_services}
             </Link>
           </div>
         </div>
@@ -242,23 +197,23 @@ export default function Home() {
       {/* ── Services preview ── */}
       <section className="py-20 bg-cream" aria-labelledby="services-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading accent>Unsere Leistungen</SectionHeading>
+          <SectionHeading accent>{t.services.heading}</SectionHeading>
 
           <div ref={servicesRef} className="fade-in-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map(({ icon, title, desc }) => (
-              <article key={title} className="service-card">
+            {serviceKeys.map((key, i) => (
+              <article key={key} className="service-card">
                 <div className="w-12 h-12 bg-navy-50 rounded-lg flex items-center justify-center mb-4 text-navy-600">
-                  {icon}
+                  {serviceIcons[i]}
                 </div>
-                <h3 className="font-serif text-lg font-bold text-navy-800 mb-2">{title}</h3>
-                <p className="font-sans text-sm text-navy-500 leading-relaxed">{desc}</p>
+                <h3 className="font-serif text-lg font-bold text-navy-800 mb-2">{t.services[`${key}_title`]}</h3>
+                <p className="font-sans text-sm text-navy-500 leading-relaxed">{t.services[`${key}_desc`]}</p>
               </article>
             ))}
           </div>
 
           <div className="text-center mt-10">
             <Link to="/leistungen" className="btn-outline">
-              Alle Leistungen ansehen <ArrowRightIcon />
+              {t.services.cta} <ArrowRightIcon />
             </Link>
           </div>
         </div>
@@ -272,18 +227,15 @@ export default function Home() {
             {/* Left text */}
             <div>
               <div className="inline-block bg-gold-50 text-gold-700 text-xs font-sans font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
-                All-inclusive Service
+                {t.membership.badge}
               </div>
               <h2 id="membership-heading" className="font-serif text-3xl md:text-4xl font-bold text-navy-800 mb-3">
-                Faire Mitgliedsbeiträge
+                {t.membership.heading}
               </h2>
               <span className="block mb-6 h-[3px] w-12 bg-gold-gradient rounded-full" />
-              <p className="font-sans text-navy-600 leading-relaxed mb-8">
-                Werden Sie Mitglied und profitieren Sie von unserem umfassenden Service zu einem fairen
-                Jahresbeitrag. Keine versteckten Kosten — alles inklusive.
-              </p>
+              <p className="font-sans text-navy-600 leading-relaxed mb-8">{t.membership.body}</p>
               <ul className="space-y-3 mb-8">
-                {['Steuererklärung', 'Bescheid-Prüfung', 'Persönliche Beratung', 'ELSTER-Abgabe'].map(item => (
+                {t.membership.checklist.map(item => (
                   <li key={item} className="flex items-center gap-3 font-sans text-sm text-navy-700">
                     <span className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <CheckIcon className="w-3 h-3 text-green-600" />
@@ -293,20 +245,18 @@ export default function Home() {
                 ))}
               </ul>
               <Link to="/mitgliedschaft" className="btn-primary">
-                Jetzt Mitglied werden <ArrowRightIcon />
+                {t.membership.cta} <ArrowRightIcon />
               </Link>
             </div>
 
             {/* Right pricing card */}
             <div className="card border-t-4 border-t-gold-500">
               <div className="text-center mb-6">
-                <div className="font-sans text-sm text-navy-400 mb-2">Jahresbeitrag</div>
+                <div className="font-sans text-sm text-navy-400 mb-2">{t.membership.from}</div>
                 <div className="font-serif text-5xl font-bold text-navy-800">Ab 120€</div>
-                <div className="font-sans text-sm text-navy-400 mt-1">/Jahr</div>
-                <div className="font-sans text-sm text-navy-500 mt-3">Bis max. 450€/Jahr</div>
+                <div className="font-sans text-sm text-navy-500 mt-3">{t.membership.to}</div>
               </div>
 
-              {/* Progress bar */}
               <div className="mb-6">
                 <div className="flex justify-between text-xs font-sans text-navy-400 mb-2">
                   <span>120€</span>
@@ -321,13 +271,11 @@ export default function Home() {
               </div>
 
               <div className="bg-gold-50 rounded-lg p-4 mb-4">
-                <p className="font-sans text-xs text-gold-700 text-center">
-                  Einmalige Aufnahmegebühr: 20€
-                </p>
+                <p className="font-sans text-xs text-gold-700 text-center">{t.membership.signup_fee}</p>
               </div>
 
               <Link to="/mitgliedschaft" className="btn-gold w-full justify-center">
-                Mitgliedschaft anfragen
+                {t.membership.cta_card}
               </Link>
             </div>
           </div>
@@ -338,31 +286,28 @@ export default function Home() {
       <section className="bg-navy-800 py-14" aria-label="Internationaler Service">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="font-serif text-2xl md:text-3xl font-bold text-white mb-3">
-            Auch für ausländische Mitbürger
+            {t.international.heading}
           </h2>
-          <p className="font-sans text-navy-200 leading-relaxed">
-            Wir bieten unsere Beratungsleistungen auch in englischer Sprache an — für internationale
-            Fachkräfte, Expats und alle, die sich auf Deutsch nicht sicher fühlen.
-          </p>
+          <p className="font-sans text-navy-200 leading-relaxed">{t.international.body}</p>
         </div>
       </section>
 
       {/* ── Locations ── */}
       <section className="py-20 bg-cream" aria-labelledby="locations-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading accent>Unsere Standorte</SectionHeading>
+          <SectionHeading accent>{t.locations.heading}</SectionHeading>
 
           <div ref={locationsRef} className="fade-in-up grid grid-cols-1 md:grid-cols-2 gap-8">
 
             {/* Braunschweig */}
             <article className="card overflow-hidden p-0">
               <div className="p-6">
-                <h3 className="font-serif text-xl font-bold text-navy-800 mb-1">Braunschweig</h3>
+                <h3 className="font-serif text-xl font-bold text-navy-800 mb-1">{t.locations.bs_name}</h3>
                 <p className="font-sans text-sm text-navy-500 mb-4">Bankplatz 1, 38100 Braunschweig</p>
                 <div className="flex items-center gap-2 text-sm text-navy-600 font-sans">
                   <PhoneIcon className="w-4 h-4 text-gold-500" />
-                  <a href="tel:+4953161831101" className="hover:text-gold-600 transition-colors">
-                    (0531) 618 311 01
+                  <a href="tel:+495314632" className="hover:text-gold-600 transition-colors">
+                    Tel. (05 31) / 4 63 25
                   </a>
                 </div>
               </div>
@@ -373,7 +318,7 @@ export default function Home() {
                   className="w-full h-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  aria-label="Google Maps Karte: Bankplatz 1, 38100 Braunschweig"
+                  aria-label="Google Maps: Bankplatz 1, 38100 Braunschweig"
                 />
               </div>
             </article>
@@ -381,20 +326,24 @@ export default function Home() {
             {/* Bonn */}
             <article className="card overflow-hidden p-0">
               <div className="p-6">
-                <h3 className="font-serif text-xl font-bold text-navy-800 mb-1">Bonn</h3>
-                <p className="font-sans text-sm text-navy-500 mb-4">Adresse auf Anfrage</p>
+                <h3 className="font-serif text-xl font-bold text-navy-800 mb-1">{t.locations.bonn_name}</h3>
+                <p className="font-sans text-sm text-navy-500 mb-4">Hermannstraße 17, 53225 Bonn (Beuel-Mitte)</p>
                 <div className="flex items-center gap-2 text-sm text-navy-600 font-sans">
                   <PhoneIcon className="w-4 h-4 text-gold-500" />
-                  <a href="mailto:info@rds-steuern.de" className="hover:text-gold-600 transition-colors">
-                    info@rds-steuern.de
+                  <a href="tel:+4922897638270" className="hover:text-gold-600 transition-colors">
+                    Tel. (02 28) / 976 382 70
                   </a>
                 </div>
               </div>
-              <div className="h-52 bg-navy-100 flex items-center justify-center">
-                <div className="text-center text-navy-400">
-                  <LocationIcon className="w-10 h-10 mx-auto mb-2 opacity-40" />
-                  <p className="font-sans text-sm">Adresse auf Anfrage</p>
-                </div>
+              <div className="h-52 bg-navy-100">
+                <iframe
+                  title="Standort Bonn — Hermannstraße 17"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2527.0!2d7.1238!3d50.7477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bee6f2c3c0f8cd%3A0x0!2sHermannstra%C3%9Fe+17%2C+53225+Bonn!5e0!3m2!1sde!2sde!4v1000000000001!5m2!1sde!2sde"
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  aria-label="Google Maps: Hermannstraße 17, 53225 Bonn"
+                />
               </div>
             </article>
           </div>
@@ -409,13 +358,11 @@ export default function Home() {
               <SpeakerIcon className="w-8 h-8 text-gold-400" />
             </div>
             <div className="flex-1 text-center sm:text-left">
-              <h3 className="font-serif text-xl font-bold text-navy-800 mb-1">Radio Okerwelle</h3>
-              <p className="font-sans text-sm text-navy-500">
-                Hören Sie unsere Sendungen zu Steuerthemen für Rentner, Arbeitnehmer und mehr.
-              </p>
+              <h3 className="font-serif text-xl font-bold text-navy-800 mb-1">{t.radio.title}</h3>
+              <p className="font-sans text-sm text-navy-500">{t.radio.subtitle}</p>
             </div>
             <Link to="/radio" className="btn-primary flex-shrink-0">
-              Sendungen anhören <ArrowRightIcon />
+              {t.radio.cta} <ArrowRightIcon />
             </Link>
           </div>
         </div>
@@ -425,17 +372,15 @@ export default function Home() {
       <section className="py-20 bg-navy-gradient" aria-label="Call to action">
         <div ref={ctaRef} className="fade-in-up max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">
-            Bereit für Ihre Steuererklärung?
+            {t.final_cta.heading}
           </h2>
-          <p className="font-sans text-navy-200 mb-10">
-            Kontaktieren Sie uns noch heute — wir helfen Ihnen schnell und unkompliziert.
-          </p>
+          <p className="font-sans text-navy-200 mb-10">{t.final_cta.body}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/kontakt" className="btn-gold text-base px-8 py-4">
-              Kontakt aufnehmen <ArrowRightIcon />
+              {t.final_cta.btn1} <ArrowRightIcon />
             </Link>
             <Link to="/mitgliedschaft" className="btn-outline-light text-base px-8 py-4">
-              Mitglied werden
+              {t.final_cta.btn2}
             </Link>
           </div>
         </div>
