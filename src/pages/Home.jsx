@@ -56,34 +56,6 @@ function PhoneIcon({ className = 'w-5 h-5' }) {
   )
 }
 
-// ── Service icons (static SVG, language-independent) ─────────────────────────
-const serviceIcons = [
-  <svg key="s1" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-  </svg>,
-  <svg key="s2" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-  </svg>,
-  <svg key="s3" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-  </svg>,
-  <svg key="s4" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-  </svg>,
-  <svg key="s5" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-      d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-  </svg>,
-  <svg key="s6" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-  </svg>,
-]
-
 // ── Sub-components ────────────────────────────────────────────────────────────
 function SectionHeading({ children, accent }) {
   const ref = useFadeInUp()
@@ -98,13 +70,10 @@ function SectionHeading({ children, accent }) {
 export default function Home() {
   const { t } = useLang()
   const heroRef      = useFadeInUp()
-  const servicesRef  = useFadeInUp()
   const memberRef    = useFadeInUp()
   const locationsRef = useFadeInUp()
   const radioRef     = useFadeInUp()
   const ctaRef       = useFadeInUp()
-
-  const serviceKeys = ['s1', 's2', 's3', 's4', 's5', 's6']
 
   const trustItems = [
     { label: t.trust.item1_label, sub: t.trust.item1_sub, icon: <ShieldIcon className="w-6 h-6" /> },
@@ -190,31 +159,6 @@ export default function Home() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Services preview ── */}
-      <section className="py-20 bg-cream" aria-labelledby="services-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading accent>{t.services.heading}</SectionHeading>
-
-          <div ref={servicesRef} className="fade-in-up grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {serviceKeys.map((key, i) => (
-              <article key={key} className="service-card">
-                <div className="w-12 h-12 bg-navy-50 rounded-lg flex items-center justify-center mb-4 text-navy-600">
-                  {serviceIcons[i]}
-                </div>
-                <h3 className="font-serif text-lg font-bold text-navy-800 mb-2">{t.services[`${key}_title`]}</h3>
-                <p className="font-sans text-sm text-navy-500 leading-relaxed">{t.services[`${key}_desc`]}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Link to="/leistungen" className="btn-outline">
-              {t.services.cta} <ArrowRightIcon />
-            </Link>
           </div>
         </div>
       </section>
@@ -311,16 +255,39 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              <div className="h-52 bg-navy-100">
-                <iframe
-                  title="Standort Braunschweig — Bankplatz 1"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.8!2d10.5246!3d52.2672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47aff4b87f4ae5e1%3A0x0!2sBankplatz+1%2C+38100+Braunschweig!5e0!3m2!1sde!2sde!4v1000000000000!5m2!1sde!2sde"
-                  className="w-full h-full border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  aria-label="Google Maps: Bankplatz 1, 38100 Braunschweig"
-                />
-              </div>
+              <Link to="/kontakt" className="block h-52 bg-navy-50 hover:bg-navy-100 transition-colors group" aria-label="Zum Kontakt — Braunschweig">
+                <svg viewBox="0 0 400 208" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                  {/* Map background */}
+                  <rect width="400" height="208" fill="#e8eff8" />
+                  {/* Block grid */}
+                  <rect x="10" y="10" width="85" height="55" rx="4" fill="#d6e2ef" />
+                  <rect x="110" y="10" width="65" height="40" rx="4" fill="#d6e2ef" />
+                  <rect x="195" y="10" width="95" height="55" rx="4" fill="#d6e2ef" />
+                  <rect x="305" y="15" width="80" height="45" rx="4" fill="#d6e2ef" />
+                  <rect x="10" y="115" width="75" height="60" rx="4" fill="#d6e2ef" />
+                  <rect x="100" y="120" width="90" height="55" rx="4" fill="#d6e2ef" />
+                  <rect x="210" y="118" width="75" height="58" rx="4" fill="#d6e2ef" />
+                  <rect x="305" y="115" width="80" height="60" rx="4" fill="#d6e2ef" />
+                  {/* Roads */}
+                  <rect x="0" y="78" width="400" height="12" fill="#ffffff" />
+                  <rect x="96" y="0" width="10" height="208" fill="#ffffff" />
+                  <rect x="186" y="0" width="10" height="208" fill="#ffffff" />
+                  <rect x="296" y="0" width="10" height="208" fill="#ffffff" />
+                  {/* Bankplatz square highlight */}
+                  <rect x="113" y="57" width="70" height="38" rx="3" fill="#c8d9ea" />
+                  <rect x="118" y="62" width="60" height="28" rx="2" fill="#b8ccdf" />
+                  {/* Pin shadow */}
+                  <ellipse cx="200" cy="106" rx="14" ry="5" fill="#1a3557" opacity="0.15" />
+                  {/* Pin body */}
+                  <path d="M200 58 C188 58 179 67 179 78 C179 94 200 108 200 108 C200 108 221 94 221 78 C221 67 212 58 200 58Z" fill="#d4a84a" />
+                  <circle cx="200" cy="78" r="7" fill="white" />
+                  {/* Label */}
+                  <rect x="100" y="130" width="200" height="24" rx="4" fill="white" opacity="0.85" />
+                  <text x="200" y="146" fontFamily="serif" fontSize="12" fontWeight="bold" fill="#1a3557" textAnchor="middle">Braunschweig</text>
+                  {/* Hover cue */}
+                  <rect x="0" y="0" width="400" height="208" fill="#1a3557" opacity="0" className="group-hover:opacity-5 transition-opacity" />
+                </svg>
+              </Link>
             </article>
 
             {/* Bonn */}
@@ -335,16 +302,41 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              <div className="h-52 bg-navy-100">
-                <iframe
-                  title="Standort Bonn — Hermannstraße 17"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2527.0!2d7.1238!3d50.7477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bee6f2c3c0f8cd%3A0x0!2sHermannstra%C3%9Fe+17%2C+53225+Bonn!5e0!3m2!1sde!2sde!4v1000000000001!5m2!1sde!2sde"
-                  className="w-full h-full border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  aria-label="Google Maps: Hermannstraße 17, 53225 Bonn"
-                />
-              </div>
+              <Link to="/kontakt" className="block h-52 bg-navy-50 hover:bg-navy-100 transition-colors group" aria-label="Zum Kontakt — Bonn">
+                <svg viewBox="0 0 400 208" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                  {/* Map background */}
+                  <rect width="400" height="208" fill="#e8eff8" />
+                  {/* Rhine river hint */}
+                  <path d="M0 145 Q80 135 160 148 Q240 162 320 150 Q370 143 400 148 L400 165 Q370 160 320 167 Q240 179 160 165 Q80 152 0 162Z" fill="#c5d8ec" />
+                  {/* City blocks */}
+                  <rect x="10" y="10" width="70" height="50" rx="4" fill="#d6e2ef" />
+                  <rect x="95" y="10" width="90" height="45" rx="4" fill="#d6e2ef" />
+                  <rect x="200" y="10" width="75" height="50" rx="4" fill="#d6e2ef" />
+                  <rect x="290" y="15" width="95" height="45" rx="4" fill="#d6e2ef" />
+                  <rect x="10" y="100" width="65" height="35" rx="4" fill="#d6e2ef" />
+                  <rect x="90" y="95" width="85" height="42" rx="4" fill="#d6e2ef" />
+                  <rect x="190" y="98" width="80" height="40" rx="4" fill="#d6e2ef" />
+                  <rect x="285" y="100" width="95" height="38" rx="4" fill="#d6e2ef" />
+                  {/* Roads */}
+                  <rect x="0" y="70" width="400" height="12" fill="#ffffff" />
+                  <rect x="80" y="0" width="10" height="140" fill="#ffffff" />
+                  <rect x="180" y="0" width="10" height="140" fill="#ffffff" />
+                  <rect x="280" y="0" width="10" height="140" fill="#ffffff" />
+                  <rect x="0" y="138" width="400" height="8" fill="#ffffff" />
+                  {/* Hermannstraße highlight */}
+                  <rect x="88" y="72" width="88" height="22" rx="3" fill="#c0d3e6" />
+                  {/* Pin shadow */}
+                  <ellipse cx="200" cy="102" rx="14" ry="5" fill="#1a3557" opacity="0.15" />
+                  {/* Pin body */}
+                  <path d="M200 54 C188 54 179 63 179 74 C179 90 200 104 200 104 C200 104 221 90 221 74 C221 63 212 54 200 54Z" fill="#d4a84a" />
+                  <circle cx="200" cy="74" r="7" fill="white" />
+                  {/* Label */}
+                  <rect x="120" y="120" width="160" height="24" rx="4" fill="white" opacity="0.85" />
+                  <text x="200" y="136" fontFamily="serif" fontSize="12" fontWeight="bold" fill="#1a3557" textAnchor="middle">Bonn</text>
+                  {/* Hover cue */}
+                  <rect x="0" y="0" width="400" height="208" fill="#1a3557" opacity="0" className="group-hover:opacity-5 transition-opacity" />
+                </svg>
+              </Link>
             </article>
           </div>
         </div>
