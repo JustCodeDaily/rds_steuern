@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-navy-800 text-white" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
           {/* Col 1 — Brand */}
           <div>
@@ -23,27 +23,7 @@ export default function Footer() {
             <p className="text-sm text-navy-300 leading-relaxed">{t.footer.tagline}</p>
           </div>
 
-          {/* Col 2 — Navigation */}
-          <div>
-            <h3 className="font-serif text-base font-semibold mb-4 text-white">{t.footer.nav_heading}</h3>
-            <ul className="space-y-2">
-              {[
-                { to: '/',               label: t.nav.home },
-                { to: '/leistungen',     label: t.nav.leistungen },
-                { to: '/mitgliedschaft', label: t.nav.mitgliedschaft },
-                { to: '/kontakt',        label: t.nav.kontakt },
-                { to: '/karriere',       label: t.nav.karriere },
-              ].map(({ to, label }) => (
-                <li key={label}>
-                  <Link to={to} className="text-sm text-navy-300 hover:text-gold-400 transition-colors">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Col 3 — Contact (right column) */}
+          {/* Contact */}
           <div>
             <h3 className="font-serif text-base font-semibold mb-4 text-white">{t.footer.contact_heading}</h3>
             <address className="not-italic space-y-2 text-sm text-navy-300">
