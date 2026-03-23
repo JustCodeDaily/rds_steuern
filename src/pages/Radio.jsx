@@ -56,16 +56,11 @@ function EpisodeCard({ episode }) {
       </div>
 
       <ol className="space-y-3" aria-label={`Sendungsabschnitte: ${episode.title}`}>
-        {episode.segments.map(({ label, file }, i) => (
-          <li key={file} className="bg-gold-50 rounded-lg px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
-            <span className="font-sans text-xs text-navy-500 sm:w-48 flex-shrink-0">
+        {episode.segments.map(({ label }, i) => (
+          <li key={label} className="bg-gold-50 rounded-lg px-4 py-3">
+            <span className="font-sans text-xs text-navy-500">
               <span className="font-semibold text-navy-700">{i + 1}.</span> {label}
             </span>
-            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-            <audio controls preload="none" className="w-full h-8" aria-label={`Abschnitt ${i + 1}: ${label}`}>
-              <source src={`${BASE}${file}`} type="audio/mpeg" />
-              Ihr Browser unterstützt das Audio-Element nicht.
-            </audio>
           </li>
         ))}
       </ol>
@@ -85,9 +80,11 @@ export default function Radio() {
       />
 
       <div className="py-20 bg-cream">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 space-y-10">
-          <EpisodeCard episode={episode1} />
-          <EpisodeCard episode={episode2} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <EpisodeCard episode={episode1} />
+            <EpisodeCard episode={episode2} />
+          </div>
         </div>
       </div>
     </>
